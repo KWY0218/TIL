@@ -86,7 +86,7 @@ jobs:
       # Deploy
       - name: Deploy
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AW_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AW_ACCESS_KWY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
         run:
           aws deploy create-deployment
