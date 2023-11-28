@@ -12,6 +12,7 @@ import java.util.Arrays;
 public class ProfileController {
     private final Environment env;
 
+    
     @GetMapping("/profile")
     public String getProfile() {
         return Arrays.stream(env.getActiveProfiles())
