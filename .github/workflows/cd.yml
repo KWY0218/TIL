@@ -90,8 +90,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
         run:
           aws deploy create-deployment
-          --application-name til-codedeploy
-          --deployment-group-name til-codedeploy-group
+          --application-name kwy-codedeploy
+          --deployment-group-name kwy-codedeploy-group
           --file-exists-behavior OVERWRITE
           --s3-location bucket=til-kwy,bundleType=zip,key=til.zip
           --region ap-northeast-2
