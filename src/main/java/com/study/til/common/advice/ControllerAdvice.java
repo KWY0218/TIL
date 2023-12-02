@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(NumberFormatException.class)
-    protected ErrorResponse errorTest(final NumberFormatException error) {
+    @ExceptionHandler(Exception.class)
+    protected ErrorResponse errorTest(final Exception error) {
         return ErrorResponse.error(HttpStatus.BAD_REQUEST.value(), error.getMessage());
     }
 }
