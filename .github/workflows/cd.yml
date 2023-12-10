@@ -7,7 +7,7 @@ on:
     branches: [ "asap-memory" ] # main branch로 push 될 때 실행됩니다.
 
 env:
-  S3_BUCKET_NAME: asap-server
+  S3_BUCKET_NAME: til-kwy
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
     
     # 3) 환경변수 파일 생성
@@ -81,7 +81,7 @@ jobs:
         aws-region: ap-northeast-2
         
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./asap_server.zip s3://$S3_BUCKET_NAME/
+      run: aws s3 cp --region ap-northeast-2 ./til.zip s3://$S3_BUCKET_NAME/
       
     # Deploy
     - name: Deploy
@@ -89,9 +89,9 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AW_ACCESS_KWY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
       run:
-        aws deploy create-deployment 
-        --application-name asap-server-codedeploy
-        --deployment-group-name asap-server-codedeploy-group
-        --file-exists-behavior OVERWRITE 
-        --s3-location bucket=asap-server,bundleType=zip,key=asap_server.zip
+        aws deploy create-deployment
+        --application-name kwy-codedeploy
+        --deployment-group-name kwy-codedeploy-group
+        --file-exists-behavior OVERWRITE
+        --s3-location bucket=til-kwy,bundleType=zip,key=til.zip
         --region ap-northeast-2
