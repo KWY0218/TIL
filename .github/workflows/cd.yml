@@ -41,6 +41,7 @@ jobs:
         # application.yml 파일 확인
         cat ./application.yml
       shell: bash
+      
         
     # 이 워크플로우는 gradle build
     - name: Grant execute permission for gradlew
