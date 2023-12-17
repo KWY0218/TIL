@@ -2,7 +2,7 @@ name: GO-SOPT-Server CI
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "logging-file" ]
   pull_request:
     branches: [ "develop" ]
 
